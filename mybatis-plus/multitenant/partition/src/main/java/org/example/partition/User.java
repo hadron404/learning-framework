@@ -1,5 +1,8 @@
 package org.example.partition;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+
+@TableName("m_user")
 public class User {
 	private Long id;
 	private String name;

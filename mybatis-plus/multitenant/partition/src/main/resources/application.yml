@@ -14,4 +14,4 @@ spring:
 # Logger Config
 logging:
   level:
-    com.baomidou.mybatisplus.samples.quickstart: debug
+    org.example.partition: debug
