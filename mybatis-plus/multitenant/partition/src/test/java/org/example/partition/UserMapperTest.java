@@ -14,6 +14,7 @@ class UserMapperTest {
 
 	@Test
 	void name() {
+		MybatisConfiguration.TenantContext.setCurrentTenant("123");
 		User user = userMapper.selectById(1);
 		Assertions.assertEquals(18, user.getAge());
 	}
