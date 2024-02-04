@@ -1,0 +1,17 @@
+# tenant 主库
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:test
+    username: root
+    password: test
+  sql:
+    init:
+      schema-locations: classpath:h2/metadata/schema.sql
+      data-locations: classpath:h2/data.sql
+      mode: always
+
+# Logger Config
+logging:
+  level:
+    org.example.partition: debug

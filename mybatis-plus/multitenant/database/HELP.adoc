@@ -1,0 +1,4 @@
+原理：基于底层orm框架（mybatis，jpa等）的动态数据源支持
+
+https://blog.csdn.net/liu320yj/article/details/130125139[应用编译启动时进行数据源加载以实现多租户独立数据库的模式]
+https://gitee.com/baomidou/dynamic-datasource-spring-boot-starter[mybatis-plus提供的多数据源扩展]
