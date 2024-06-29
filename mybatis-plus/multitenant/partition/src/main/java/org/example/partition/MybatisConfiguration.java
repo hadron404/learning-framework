@@ -30,10 +30,29 @@ public class MybatisConfiguration {
 			return "tenant_id";
 		}
 
+		// 返回 true 表示不走租户逻辑
 		@Override
 		public boolean ignoreTable(String tableName) {
-			// 如果那些表不需要做租户隔离的，在这里配置
+			if (Objects.nonNull(MybatisTenantContext.get())) {
+				return MybatisTenantContext.get();
+			}
+			//默认租户隔离
 			return false;
+		}
+	}
+	public static class MybatisTenantContext {
+		private static final ThreadLocal<Boolean> TENANT_CONTEXT_THREAD_LOCAL = new ThreadLocal<>();
+
+		public static Boolean get() {
+			return TENANT_CONTEXT_THREAD_LOCAL.get();
+		}
+
+		public static void set(boolean isIgnore) {
+			TENANT_CONTEXT_THREAD_LOCAL.set(isIgnore);
+		}
+
+		public static void clear() {
+			TENANT_CONTEXT_THREAD_LOCAL.remove();
 		}
 	}
 
